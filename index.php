@@ -1,21 +1,21 @@
 <?php
 
-class calculation
+class Person
 {
-    public $a, $b, $c;
-
-    public function sum($a, $b)
+    public $name, $age;
+    function __construct($name, $age = 18)
     {
-        $this->c = $this->a = $a + $this->b = $b;
-        return $this->c;
+        $this->name = $name;
+        $this->age = $age;
     }
-    public function product($a, $b)
+    function show()
     {
-        $this->c = $this->a = $a * $this->b = $b;
-        return $this->c;
+        return "User Name is: " . $this->name . " and Age is: " . $this->age . "</br>";
     }
 }
-$obj = new calculation();
-echo $obj->sum(10, 20);
-echo "</br>";
-echo $obj->product(25, 20);
+
+$object = new Person('Mannan', 25);
+echo $object->show();
+
+$object2 = new Person('Ravi');
+echo $object2->show();

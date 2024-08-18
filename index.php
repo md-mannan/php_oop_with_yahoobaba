@@ -1,21 +1,33 @@
 <?php
+// PHP interface implementation
 
-// abastract class
-
-abstract class Base
+interface A
 {
-    public $name;
-    abstract public function calc($a, $b);
+    function hello($name);
 }
-
-class Child extends Base
+interface C
 {
-    public $name = "Ravi";
-    public function calc($a, $b)
+    function hi($a);
+    function bye();
+}
+class B implements A, C
+{
+    public function hello($name)
     {
-        echo  $a + $b;
+        echo "Hello, $name!<br>";
+    }
+    public function hi($a)
+    {
+        echo "Hi, $a!<br>";
+    }
+    public function bye()
+    {
+        echo "Good Bye!<br>";
     }
 }
 
-$obj = new Child();
-$obj->calc(10, 20);
+$obj = new B();
+
+$obj->hello("John");
+$obj->hi("John");
+$obj->bye();

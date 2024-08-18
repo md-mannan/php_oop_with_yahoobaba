@@ -1,30 +1,28 @@
 <?php
-trait test
+trait hello
 {
-    function sayhelo()
+    function sayhello()
     {
-        echo "Hello from trait";
+        echo "Hello from Hello trait";
+    }
+}
+trait hi
+{
+    function sayhello()
+    {
+        echo "Hello from Hi trait";
     }
 }
 
-class MyClass
+class baseclass
 {
-    use test;
-    function sayhelo()
-    {
-        echo "Hello from MyClass";
+    use hello, hi {
+        hello::sayhello insteadof hi;
+        hi::sayhello as sayHi;
     }
 }
-class child extends MyClass
-{
-    use test;
-    // function sayhelo()
-    // {
-    //     echo "Hello from child";
-    // }
-}
 
-
-$obj = new child();
-
-$obj->sayhelo(); // Output: Hello from child
+$obj = new baseclass();
+$obj->sayhello();
+echo "</br>";
+$obj->sayHi();

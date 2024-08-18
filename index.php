@@ -1,24 +1,28 @@
 <?php
 
-
 class abc
 {
-    function first()
+    private $con;
+    private $host = 'localhost';
+    private $user = 'root';
+    private $pass = '';
+    private $db = 'laravel';
+    function __construct()
     {
-        echo "Hello from first function\n";
-        return $this;
+        $this->con = mysqli_connect($this->host, $this->user, $this->pass, $this->db);
     }
-    function second()
+
+    function Hello()
     {
-        echo "Hello from second function\n";
-        return $this;
+        echo "Hello this is from Hello()</br>";
     }
-    function third()
+    function __destruct()
     {
-        echo "Hello from third function\n";
-        return $this;
+        mysqli_close($this->con);
     }
 }
 
+
 $test = new abc();
-$test->first()->second()->third();
+$test->Hello();
+echo "hello from constructor</br>";

@@ -1,35 +1,21 @@
 <?php
 
-// PHP Access Modefiers
+// abastract class
 
-class Base
+abstract class Base
 {
-    private $name; //this $variable can not access from object  or  Child class only from self class
-
-    public function __construct($name)
-    {
-        $this->name = $name;
-    }
-
-    function display()
-    {
-        $this->name = "Ravi";
-        echo "Hello, My Name is " . $this->name . "<br>";
-    }
+    public $name;
+    abstract public function calc($a, $b);
 }
 
 class Child extends Base
 {
-    function display()
+    public $name = "Ravi";
+    public function calc($a, $b)
     {
-
-        echo "Hello, My Name is " . $this->name . "<br>";
+        echo  $a + $b;
     }
 }
 
-$obj = new Base("Mannan");
-// $obj->name = "Mannan"; 
-$obj->display();
-$obj2 = new Child("Mannan");
-
-$obj2->display();
+$obj = new Child();
+$obj->calc(10, 20);

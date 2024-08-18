@@ -1,16 +1,30 @@
 <?php
-
-class Parrent
+trait test
 {
-    static $name = "Ravi";
-}
-class child extends Parrent
-{
-    public static $name = "Mannan";
-    public static function getName()
+    function sayhelo()
     {
-        return parent::$name;
+        echo "Hello from trait";
     }
 }
 
-echo child::getName(); // Output: Mannan
+class MyClass
+{
+    use test;
+    function sayhelo()
+    {
+        echo "Hello from MyClass";
+    }
+}
+class child extends MyClass
+{
+    use test;
+    // function sayhelo()
+    // {
+    //     echo "Hello from child";
+    // }
+}
+
+
+$obj = new child();
+
+$obj->sayhelo(); // Output: Hello from child

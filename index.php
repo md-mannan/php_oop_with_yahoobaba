@@ -1,29 +1,10 @@
 <?php
-trait hello
-{
-    private function sayhello()
-    {
-        echo "Hello from Hello trait";
-    }
-}
-trait hi
-{
-    function sayhello()
-    {
-        echo "Hello from Hi trait";
-    }
-}
 
-class baseclass
-{
-    use hello, hi {
-        hello::sayhello insteadof hi;
-        hello::sayhello as public;
-        hi::sayhello as sayHi;
-    }
-}
 
-$obj = new baseclass();
-$obj->sayhello();
-echo "</br>";
-$obj->sayHi();
+require 'first.php';
+require 'second.php';
+
+$first = new first\first();
+$first->sayHello();
+$second = new second\second();
+$second->sayHi();

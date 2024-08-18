@@ -1,7 +1,7 @@
 <?php
 trait hello
 {
-    function sayhello()
+    private function sayhello()
     {
         echo "Hello from Hello trait";
     }
@@ -18,6 +18,7 @@ class baseclass
 {
     use hello, hi {
         hello::sayhello insteadof hi;
+        hello::sayhello as public;
         hi::sayhello as sayHi;
     }
 }

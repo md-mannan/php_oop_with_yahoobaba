@@ -1,33 +1,26 @@
 <?php
 // PHP interface implementation
 
-interface A
+interface parent1
 {
-    function hello($name);
+    function calc($a, $b);
 }
-interface C
+interface parent2
 {
-    function hi($a);
-    function bye();
+    function sub($c, $d);
 }
-class B implements A, C
+class childClass implements parent1, parent2
 {
-    public function hello($name)
+    public function calc($a, $b)
     {
-        echo "Hello, $name!<br>";
+        echo "Addition of two numbers: " . ($a + $b) . "</br>";
     }
-    public function hi($a)
+    public function sub($c, $d)
     {
-        echo "Hi, $a!<br>";
-    }
-    public function bye()
-    {
-        echo "Good Bye!<br>";
+        echo "Subtraction of two numbers: " . ($c - $d) . "</br>";
     }
 }
 
-$obj = new B();
-
-$obj->hello("John");
-$obj->hi("John");
-$obj->bye();
+$obj = new childClass();
+$obj->calc(5, 80);
+$obj->sub(50, 10);

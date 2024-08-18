@@ -1,26 +1,16 @@
 <?php
-// PHP interface implementation
 
-interface parent1
+class Parrent
 {
-    static function calc($a, $b);
+    static $name = "Ravi";
 }
-interface parent2
+class child extends Parrent
 {
-    static function sub($c, $d);
-}
-class childClass implements parent1, parent2
-{
-    public static function calc($a, $b)
+    public static $name = "Mannan";
+    public static function getName()
     {
-        echo "Addition of two numbers: " . ($a + $b) . "</br>";
-    }
-    public static function sub($c, $d)
-    {
-        echo "Subtraction of two numbers: " . ($c - $d) . "</br>";
+        return parent::$name;
     }
 }
 
-// $obj = new childClass();
-childClass::calc(5, 80);
-childClass::sub(50, 10);
+echo child::getName(); // Output: Mannan

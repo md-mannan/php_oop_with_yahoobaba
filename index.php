@@ -4,7 +4,7 @@
 
 class Base
 {
-    protected $name; //this $variable can not access from object of class only from child class or  self class
+    private $name; //this $variable can not access from object  or  Child class only from self class
 
     public function __construct($name)
     {

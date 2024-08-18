@@ -4,7 +4,7 @@
 
 class Base
 {
-    public $name; //this $variable can be access from anywhere object of class or child class
+    protected $name; //this $variable can not access from object of class only from child class or  self class
 
     public function __construct($name)
     {
@@ -13,9 +13,23 @@ class Base
 
     function display()
     {
+        $this->name = "Ravi";
+        echo "Hello, My Name is " . $this->name . "<br>";
+    }
+}
+
+class Child extends Base
+{
+    function display()
+    {
+
         echo "Hello, My Name is " . $this->name . "<br>";
     }
 }
 
 $obj = new Base("Mannan");
+// $obj->name = "Mannan"; 
 $obj->display();
+$obj2 = new Child("Mannan");
+
+$obj2->display();
